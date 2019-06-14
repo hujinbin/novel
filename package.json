@@ -4,7 +4,8 @@
   "description": "",
   "main": "start.js",
   "scripts": {
-    "start": "node strat.js",
+    "start": "cross-env webpack-dev-server --compress --config config/webpack.config.js",
+    "dev": "cross-env nodemon start.js --watch server",
     "build": "cross-env  NODE_ENV=production webpack --progress",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
