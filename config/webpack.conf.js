@@ -58,9 +58,14 @@ const rules = [
 
 const serverConfig = {
   target: 'node',
-  entry: {
-    page: './server/index.js',
-  },
+  entry: [
+    // 'react-hot-loader/patch',
+    'webpack/hot/only-dev-server', //HRM更新时刷新整个页面，如果是only-dev-server是手动刷新
+    `${__dirname}/server/index.js`
+  ],
+  // entry: {
+  //   page: './server/index.js',
+  // },
   externals: [nodeExternals()],
   output: {
     filename: '[name].js',
@@ -69,9 +74,14 @@ const serverConfig = {
   }
 }
 const appConfig = {
-  entry: {
-    page: resolve('./src/index.js')
-  },
+  // entry: {
+  //   page: resolve('./src/index.js')
+  // },
+  entry: [
+    // 'react-hot-loader/patch',
+    'webpack/hot/only-dev-server', //HRM更新时刷新整个页面，如果是only-dev-server是手动刷新
+    `${__dirname}/src/index.js`
+  ],
   output: {
     path: path.join(__dirname, '../public/'),
     filename: '[name].js',
