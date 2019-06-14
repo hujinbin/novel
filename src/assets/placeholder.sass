@@ -1,0 +1,16 @@
+@keyframes placeHolderShimmer
+  0%
+    background-position: -999px 0
+  100%
+    background-position: 999px 0
+
+.animated-placeholder
+  animation-duration: 15s
+  animation-fill-mode: forwards
+  animation-iteration-count: infinite
+  animation-name: placeHolderShimmer
+  animation-timing-function: linear
+  background: #f6f7f8
+  background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%)
+  background-size: 100% 100%
+  margin: 15px

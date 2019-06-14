@@ -1,0 +1,26 @@
+{
+  "name": "novel",
+  "version": "1.0.0",
+  "description": "",
+  "main": "start.js",
+  "scripts": {
+    "start": "node strat.js",
+    "build": "cross-env  NODE_ENV=production webpack --progress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-polyfill": "^6.26.0",
+    "fs": "0.0.1-security",
+    "koa": "^2.7.0",
+    "koa-better-router": "^2.1.1",
+    "koa-ejs": "^4.2.0",
+    "koa-views": "^6.1.5",
+    "mongoose": "^5.4.19",
+    "mysql": "^2.16.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4"
+  }
+}
