@@ -22,4 +22,4 @@ const getUserInfo = async ctx => {
     ctx.body = data;
 };
 
-export default getUserInfo;
+module.exports=getUserInfo;
