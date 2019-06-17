@@ -104,7 +104,24 @@ const config = require('../config/webpack.dev.config');
 const compiler = webpack(config);
 const devMiddleware = require('koa-webpack-dev-middleware');
 const hotMiddleware = require('koa-webpack-hot-middleware');
-const app = require('./app.js').default;
+
+import Koa from 'koa';
+import json from 'koa-json';
+import bodyParser from 'koa-bodyparser';
+import logger from 'koa-logger';
+import session from 'koa-session';
+import compress from 'koa-compress';
+import convert from 'koa-convert';
+import cors from 'koa2-cors';
+
+const app = new Koa();
+app.use(convert(session(app)));
+app.use(compress());
+app.use(bodyParser());
+app.use(cors());
+app.use(json());
+app.use(logger());
+
 const router = require('./routes').default;
 const clientRoute = require('./middlewares/clientRoute').default;
 const port = process.env.port || 3000;
