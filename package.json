@@ -5,10 +5,12 @@
   "main": "start.js",
   "scripts": {
     "start": "cross-env webpack-dev-server --compress --config ./config/webpack.config.js",
-    "dev": "cross-env nodemon server/server.dev.js --watch serve",
+    "dev": "cross-env NODE_ENV=development nodemon server/server.dev.js --watch serve",
     "build": "cross-env  NODE_ENV=production webpack --progress",
-    "build-test": "rimraf ./dist && cross-env webpack --config ./config/webpack.prod.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build-test": "cross-env webpack --config ./config/webpack.prod.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "startpm": "pm2 start ./server/server.dev.js",
+    "delpm": "pm2 delete all"
   },
   "author": "",
   "license": "ISC",

@@ -44,7 +44,6 @@ compiler.plugin('emit', (compilation, callback) => {
     });
     callback();
 });
-console.log(router.routes)
 app.use(views(path.resolve(__dirname, '../views'), { map: { html: 'ejs' } }));
 app.use(router.routes());
 app.use(router.allowedMethods());
