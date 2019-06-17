@@ -8,7 +8,7 @@
 // const fs = require("fs");
 // import bodyParser from 'koa-bodyparser'
 
-// const config = require('../build/webpack.dev.config');
+// const config = require('../config/webpack.dev.config');
 // const compiler = webpack(config);
 // const devMiddleware = require('koa-webpack-dev-middleware');
 // const hotMiddleware = require('koa-webpack-hot-middleware');
@@ -79,26 +79,10 @@
 
 // app.listen(1994)
 // console.log("demo in run 1994")
-const Koa = require('koa')
-const json = require('koa-json')
-const bodyParser = require('koa-bodyparser')
-const logger = require('koa-logger')
-const session = require('koa-session')
-const compress = require('koa-compress')
-const cors = require('koa2-cors')
-// import Koa from 'koa';
-// import json from 'koa-json';
-// import bodyParser from 'koa-bodyparser';
-// import logger from 'koa-logger';
-// import session from 'koa-session';
-// import compress from 'koa-compress';
-// import cors from 'koa2-cors';
 
-require('babel-polyfill');
-require('source-map-support').install();
 require('css-modules-require-hook')({
-    extensions: ['.sass'],
-    processorOpts: { parser: require('postcss-sass').parse },
+    extensions: ['.scss'],
+    processorOpts: { parser: require('postcss-scss').parse },
     camelCase: true,
     generateScopedName: '[local]_[hash:base64:10]'
 });
@@ -119,6 +103,17 @@ const devMiddleware = require('koa-webpack-dev-middleware');
 const hotMiddleware = require('koa-webpack-hot-middleware');
 
 
+// const app = require('./app.js').default;
+
+import Koa from 'koa';
+import json from 'koa-json';
+import bodyParser from 'koa-bodyparser';
+import logger from 'koa-logger';
+import session from 'koa-session';
+import compress from 'koa-compress';
+import convert from 'koa-convert';
+import cors from 'koa2-cors';
+
 const app = new Koa();
 app.use(convert(session(app)));
 app.use(compress());
@@ -127,10 +122,12 @@ app.use(cors());
 app.use(json());
 app.use(logger());
 
-const router = require('./routers');
-const reactRoute = require('./routers/reactRoute').default;
+
+
+
+const router = require('./routes').default;
+const clientRoute = require('./middlewares/clientRoute').default;
 const port = process.env.port || 3000;
-console.log(router.routes)
 
 compiler.plugin('emit', (compilation, callback) => {
     const assets = compilation.assets;
@@ -144,11 +141,11 @@ compiler.plugin('emit', (compilation, callback) => {
     });
     callback();
 });
-
+console.log(router.routes)
 app.use(views(path.resolve(__dirname, '../src'), { map: { html: 'ejs' } }));
-// app.use(router.routes());
-// app.use(router.allowedMethods());
-app.use(reactRoute);
+app.use(router.routes());
+app.use(router.allowedMethods());
+app.use(clientRoute);
 
 app.use(convert(devMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath })));
 app.use(convert(hotMiddleware(compiler)));
@@ -157,4 +154,4 @@ app.listen(port, () => {
     console.log(`\n==> open up http://localhost:${port}/ in your browser.\n`);
 });
 
-// module.exports = app;
+module.exports = server;

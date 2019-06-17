@@ -1,25 +1,25 @@
-// import query from './config';
+import query from './config';
 
-// const findUserInfo = () => {
-//     const _sql = 'select * from user';
-//     return query(_sql, []);
-// };
+const findUserInfo = () => {
+    const _sql = 'select * from user';
+    return query(_sql, []);
+};
 
 const getUserInfo = async ctx => {
     let data = {};
 
-    // await findUserInfo().then(result => {
-    //     data = result[0];
-    // });
+    await findUserInfo().then(result => {
+        data = result[0];
+    });
 
-    data = {
-        userId: 1002,
-        name: 'xwb007',
-        gender: '男',
-        age: 24
-    };
+    // data = {
+    //     userId: 1002,
+    //     name: 'xwb007',
+    //     gender: '男',
+    //     age: 24
+    // };
 
     ctx.body = data;
 };
 
-module.exports=getUserInfo;
+export default getUserInfo;
