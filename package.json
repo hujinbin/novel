@@ -12,8 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "asset-require-hook": "^1.2.0",
     "babel-core": "^6.26.3",
     "babel-polyfill": "^6.26.0",
+    "css-modules-require-hook": "^4.2.3",
     "fs": "0.0.1-security",
     "koa": "^2.7.0",
     "koa-better-router": "^2.1.1",
@@ -23,6 +25,7 @@
     "koa-views": "^6.1.5",
     "mongoose": "^5.4.19",
     "mysql": "^2.16.0",
+    "postcss-sass": "^0.3.5",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   }

@@ -83,15 +83,9 @@
 
 require('babel-polyfill');
 require('source-map-support').install();
-require('@babel/register')({
-    presets: ['@babel/preset-env', '@babel/preset-react']
-});
-require('@babel/core').transform('code', {
-    plugins: ['@babel/plugin-transform-runtime']
-});
 require('css-modules-require-hook')({
-    extensions: ['.less'],
-    processorOpts: { parser: require('postcss-less').parse },
+    extensions: ['.sass'],
+    processorOpts: { parser: require('postcss-sass').parse },
     camelCase: true,
     generateScopedName: '[local]_[hash:base64:10]'
 });
