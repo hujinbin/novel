@@ -23,7 +23,7 @@ const path = require('path');
 const views = require('koa-views');
 const convert = require('koa-convert');
 const webpack = require('webpack');
-const config = require('../config/webpack.dev.config');
+const config = require('../build/webpack.dev.config');
 const compiler = webpack(config);
 const devMiddleware = require('koa-webpack-dev-middleware');
 const hotMiddleware = require('koa-webpack-hot-middleware');
@@ -44,6 +44,7 @@ compiler.plugin('emit', (compilation, callback) => {
     });
     callback();
 });
+
 app.use(views(path.resolve(__dirname, '../views'), { map: { html: 'ejs' } }));
 app.use(router.routes());
 app.use(router.allowedMethods());
