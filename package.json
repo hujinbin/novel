@@ -8,7 +8,7 @@
     "dev": "cross-env nodemon server/server.dev.js --watch server",
     "build": "rimraf ./dist && cross-env webpack --config ./build/webpack.prod.config.js",
     "server": "npm run build && node ./dist/server/server.js",
-    "startpm": "pm2 start ./server/server.dev.js --name xwb007",
+    "startpm": "pm2 start ./server/server.dev.js",
     "delpm": "pm2 delete all"
   },
   "dependencies": {
@@ -33,7 +33,8 @@
     "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "source-map-support": "^0.5.12"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
