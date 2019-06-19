@@ -11,7 +11,7 @@ module.exports = [
         devtool: 'eval-source-map',
         context: path.resolve(__dirname, '..'),
         entry: {
-            bundle: './src'
+            bundle: './client'
         },
         output: {
             path: path.resolve(__dirname, '../dist'),

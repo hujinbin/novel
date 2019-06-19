@@ -4,9 +4,9 @@
   "description": "",
   "main": "start.js",
   "scripts": {
-    "start": "cross-env webpack-dev-server --compress --config build/webpack.config.js",
+    "start": "cross-env webpack-dev-server --compress --config config/webpack.config.js",
     "dev": "cross-env nodemon server/server.dev.js --watch server",
-    "build": "rimraf ./dist && cross-env webpack --config ./build/webpack.prod.config.js",
+    "build": "rimraf ./dist && cross-env webpack --config ./config/webpack.prod.config.js",
     "server": "npm run build && node ./dist/server/server.js",
     "startpm": "pm2 start ./server/server.dev.js",
     "delpm": "pm2 delete all"

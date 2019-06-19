@@ -6,7 +6,7 @@ module.exports = {
     mode: 'development',
     devtool: 'eval-source-map',
     context: path.resolve(__dirname, '..'),
-    entry: './src',
+    entry: './client',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[chunkhash:8].bundle.js',
