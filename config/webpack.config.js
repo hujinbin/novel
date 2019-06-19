@@ -42,7 +42,7 @@ module.exports = {
     plugins: [
         new ProgressBarPlugin({ summary: true }),
         new HtmlWebpackPlugin({
-            template: './views/server.html'
+            template: './client/index.html'
         })
     ],
     devServer: {
