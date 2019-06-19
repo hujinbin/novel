@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { RoutesIndex } from '../router/index.jsx.js';
+import { RoutesIndex } from '../router/index.jsx';
 
 export default connect(
     state => state,

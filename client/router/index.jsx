@@ -3,8 +3,8 @@
  */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from '../page/Home/index.jsx.js';
-import About from '../page/About/index.jsx.js';
+import Home from '../page/Home/index.jsx';
+import About from '../page/About/index.jsx';
 
 const routes = [{ path: '/', component: Home }, { path: '/about', component: About }];
 
