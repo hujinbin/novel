@@ -11,7 +11,7 @@ module.exports = [
         devtool: 'eval-source-map',
         context: path.resolve(__dirname, '..'),
         entry: {
-            bundle: './client'
+            bundle: './src'
         },
         output: {
             path: path.resolve(__dirname, '../dist'),
@@ -52,8 +52,8 @@ module.exports = [
                 filename: 'css/[contenthash:8].[name].css'
             }),
             new HtmlWebpackPlugin({
-                filename: './client/index.html',
-                template: './client/index.html',
+                filename: './src/index.html',
+                template: './src/template.html',
                 chunksSortMode: 'none'
             })
         ]

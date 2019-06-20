@@ -3,10 +3,8 @@
  */
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import Home from '../page/Home/index.jsx';
-import About from '../page/About/index.jsx';
 
-const routes = [{ path: '/', component: Home }, { path: '/about', component: About }];
+import Routes from './routes'
 
 class RoutesIndex extends React.Component {
     render() {
@@ -14,7 +12,7 @@ class RoutesIndex extends React.Component {
         return (
             <div className="app-container">
                 <Switch>
-                    {routes.map((item, index) => (
+                    {Routes.map((item, index) => (
                         <Route key={index} path={item.path} exact render={() => <item.component {...props} />} />
                     ))}
                 </Switch>

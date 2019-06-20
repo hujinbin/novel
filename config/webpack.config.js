@@ -6,7 +6,7 @@ module.exports = {
     mode: 'development',
     devtool: 'eval-source-map',
     context: path.resolve(__dirname, '..'),
-    entry: './client',
+    entry: './src',
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[chunkhash:8].bundle.js',
@@ -42,7 +42,7 @@ module.exports = {
     plugins: [
         new ProgressBarPlugin({ summary: true }),
         new HtmlWebpackPlugin({
-            template: './client/index.html'
+            template: './src/index.html'
         })
     ],
     devServer: {
