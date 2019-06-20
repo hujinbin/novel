@@ -44,8 +44,8 @@ module.exports = {
     plugins: [
         new ProgressBarPlugin({ summary: true }),
         new HtmlWebpackPlugin({
-            filename: '../views/index.html',
-            template: './views/template.html'
+            filename: '../client/index.html',
+            template: './client/index.html'
         })
     ]
 };
