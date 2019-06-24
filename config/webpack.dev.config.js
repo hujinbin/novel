@@ -1,8 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
+const merge = require('webpack-merge')
+const baseWebpackConfig = require('./webapck.base.config')
 
-module.exports = {
+module.exports = merge(baseWebpackConfig, {
     mode: 'development',
     devtool: 'eval-source-map',
     context: path.resolve(__dirname, '..'),
@@ -35,4 +37,4 @@ module.exports = {
             template: './src/template.html'
         })
     ]
-};
+});
