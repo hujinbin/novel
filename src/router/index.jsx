@@ -21,4 +21,4 @@ class RoutesIndex extends React.Component {
     }
 }
 
-export { RoutesIndex, routes };
+export { RoutesIndex, Routes };
