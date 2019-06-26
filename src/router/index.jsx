@@ -4,7 +4,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Routes from './routes'
+import routes from './routes'
 
 class RoutesIndex extends React.Component {
     render() {
@@ -12,7 +12,7 @@ class RoutesIndex extends React.Component {
         return (
             <div className="app-container">
                 <Switch>
-                    {Routes.map((item, index) => (
+                    {routes.map((item, index) => (
                         <Route key={index} path={item.path} exact render={() => <item.component {...props} />} />
                     ))}
                 </Switch>
@@ -21,4 +21,4 @@ class RoutesIndex extends React.Component {
     }
 }
 
-export { RoutesIndex, Routes };
+export { RoutesIndex, routes };

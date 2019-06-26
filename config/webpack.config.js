@@ -15,12 +15,12 @@ module.exports = merge(baseWebpackConfig, {
     module: {
         rules: [
             {
-                test: /\.(css|less|sass)$/,
+                test: /\.(css|less)$/,
                 use: [
                     { loader: 'style-loader' },
                     { loader: 'css-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
                     { loader: 'less-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
-                    { loader: 'sass-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
+                    // { loader: 'sass-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
                 ]
             }
         ]
@@ -28,14 +28,14 @@ module.exports = merge(baseWebpackConfig, {
     plugins: [
         new ProgressBarPlugin({ summary: true }),
         new HtmlWebpackPlugin({
-            template: './src/index.html'
+            template: './src/server.html'
         })
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         stats: 'none',
-        port: 8080,
+        port: 8081,
         historyApiFallback: true
     }
 })

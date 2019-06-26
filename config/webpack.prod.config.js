@@ -3,13 +3,12 @@ const fs = require('fs');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const merge = require('webpack-merge')
+const baseWebpackConfig = require('./webapck.base.config')
 
 module.exports = [
-    {
-        mode: 'development',
+    merge(baseWebpackConfig,{
         stats: 'none',
-        devtool: 'eval-source-map',
-        context: path.resolve(__dirname, '..'),
         entry: {
             bundle: './src'
         },
@@ -22,17 +21,6 @@ module.exports = [
         module: {
             rules: [
                 {
-                    test: /\.(js|jsx)$/,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env', '@babel/preset-react'],
-                            plugins: ['@babel/plugin-transform-runtime']
-                        }
-                    }
-                },
-                {
                     test: /\.(css|less)$/,
                     exclude: /node_modules/,
                     use: [
@@ -41,9 +29,6 @@ module.exports = [
                         { loader: 'less-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } }
                     ]
                 },
-                { test: /\.(png|jpg|gif|webp)$/, use: [{ loader: 'url-loader', options: { limit: 8192 } }] },
-                { test: /\.json$/, loader: 'json-loader' },
-                { test: /\.html$/, loader: 'html-loader' }
             ]
         },
         plugins: [
@@ -57,10 +42,9 @@ module.exports = [
                 chunksSortMode: 'none'
             })
         ]
-    },
-    {
+    }),
+    merge(baseWebpackConfig,{
         stats: 'none',
-        context: path.resolve(__dirname, '..'),
         entry: {
             server: './server/server.prod.js'
         },
@@ -77,17 +61,6 @@ module.exports = [
         module: {
             rules: [
                 {
-                    test: /\.(js|jsx)$/,
-                    exclude: /node_modules/,
-                    use: {
-                        loader: 'babel-loader',
-                        options: {
-                            presets: ['@babel/preset-env', '@babel/preset-react'],
-                            plugins: ['@babel/plugin-transform-runtime']
-                        }
-                    }
-                },
-                {
                     test: /\.(css|less)$/,
                     exclude: /node_modules/,
                     use: [
@@ -96,7 +69,6 @@ module.exports = [
                         { loader: 'less-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } }
                     ]
                 },
-                { test: /\.(png|jpg|gif|webp)$/, use: [{ loader: 'url-loader', options: { limit: 8192 } }] }
             ]
         },
         externals: fs
@@ -108,5 +80,5 @@ module.exports = [
             }, {}),
 
         plugins: [new ProgressBarPlugin({ summary: true })]
-    }
+    })
 ];
