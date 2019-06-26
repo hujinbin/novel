@@ -7,7 +7,7 @@ import store from '../../src/redux/store.js';
 import { RoutesIndex, routes } from '../../src/router/index.jsx';
 import getData from '../../src/common/getData';
 
-async function clientRoute(ctx, next) {
+async function reactRoute(ctx, next) {
     for (let item of routes) {
         if (item.path == ctx.url) {
             const data = await getData(ctx.url);
@@ -26,4 +26,4 @@ async function clientRoute(ctx, next) {
     await next();
 }
 
-export default clientRoute;
+export default reactRoute;

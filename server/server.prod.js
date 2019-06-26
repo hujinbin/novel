@@ -4,7 +4,7 @@ import serve from 'koa-static';
 import views from 'koa-views'
 import app from './app.js';
 import router from './routes/index';
-import clientRoute from './middlewares/clientRoute';
+import clientRoute from './routes/reactRoute';
 
 const port = process.env.port || 3000;
 
