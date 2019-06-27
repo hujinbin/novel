@@ -1,4 +1,4 @@
-import query from './config';
+import query from '../database/config';
 
 const findUserInfo = () => {
     const _sql = 'select * from user';
@@ -6,6 +6,10 @@ const findUserInfo = () => {
 };
 
 const getUserInfo = async ctx => {
+//     const findUserInfo = () => {
+//     const _sql = 'select * from user';
+//     return query(_sql, []);
+// };
     let data = {};
 
     await findUserInfo().then(result => {
