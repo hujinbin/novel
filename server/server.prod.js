@@ -8,7 +8,7 @@ import clientRoute from './routes/reactRoute';
 
 const port = process.env.port || 3000;
 
-app.use(views(path.resolve(__dirname, '../dist/views'), { map: { html: 'ejs' } }));
+app.use(views(path.resolve(__dirname, '../dist/src'), { map: { html: 'ejs' } }));
 app.use(serve(path.resolve(__dirname, '../dist')));
 app.use(router.routes());
 app.use(router.allowedMethods());
