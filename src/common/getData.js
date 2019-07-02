@@ -1,10 +1,10 @@
-import request from './request';
+import axiosHttp from './axiosHttp';
 
 async function getData(path) {
     switch (path) {
         case '/':
             let data = {};
-            await request.config({ url: '/api/user/getUserInfo' }).then(res => {
+            await axiosHttp.config({ url: '/api/user/getUserInfo' }).then(res => {
                 data = res;
             });
             return data;

@@ -2,7 +2,7 @@ import qs from 'qs';
 import axios from 'axios';
 import isNode from 'isnode';
 
-class Request {
+class axiosHttp {
     constructor() {
         this.base = {
             type: 'get',
@@ -39,4 +39,4 @@ class Request {
         });
     }
 }
-export default new Request();
+export default new axiosHttp();
