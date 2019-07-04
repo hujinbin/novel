@@ -6,6 +6,6 @@ import NotFound from '../page/404/index.jsx';
 const routes = [
   { name: '首页', path: '/', component: Home },
   { name: '关于', path: '/about', component: About },
-  { name: '404', path: '*', component: NotFound },
+  { name: '404', path: '/404', component: NotFound },
 ];
 export default routes;

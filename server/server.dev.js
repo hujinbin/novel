@@ -31,6 +31,7 @@ const app = require('./app.js').default;
 const router = require('./routes').default;
 const clientRoute = require('./routes/reactRoute').default;
 const port = process.env.port || 3000;
+const errThrow = require('./routes/errThrow')
 
 compiler.plugin('emit', (compilation, callback) => {
     const assets = compilation.assets;
@@ -52,6 +53,7 @@ app.use(clientRoute);
 
 app.use(convert(devMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath })));
 app.use(convert(hotMiddleware(compiler)));
+app.use(errThrow)
 
 app.listen(port, () => {
     console.log(`\n==> open up http://localhost:${port}/ in your browser.\n`);
