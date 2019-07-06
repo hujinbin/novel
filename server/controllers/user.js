@@ -1,9 +1,15 @@
-import query from '../database/config';
+// import query from '../database/config';
+import query from '../database/init';
 
-const findUserInfo = () => {
-    const _sql = 'select * from user';
+// const findUserInfo = () => {
+//     const _sql = 'select * from user';
+//     return query(_sql, []);
+// };
+const findBookList = () => {
+    const _sql = '';
     return query(_sql, []);
 };
+
 
 const getUserInfo = async ctx => {
 //     const findUserInfo = () => {
@@ -12,9 +18,14 @@ const getUserInfo = async ctx => {
 // };
     let data = {};
 
-    await findUserInfo().then(result => {
-        data = result[0];
-    });
+    // await findUserInfo().then(result => {
+    //     console.log(result)
+    //     data = result;
+    // });
+    // await findBookList().then(result => {
+    //     console.log(result)
+    //     data = result;
+    // });
 
     data = {
         userId: 1002,
