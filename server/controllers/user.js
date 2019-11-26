@@ -1,5 +1,5 @@
 // import query from '../database/config';
-import query from '../database/init';
+import Mongo from '../database/init';
 
 // const findUserInfo = () => {
 //     const _sql = 'select * from user';
