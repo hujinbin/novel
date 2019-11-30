@@ -256,3 +256,5 @@ class Mongo {
 export default Mongo;
 
 const mongoose = require('mongoose');
+
+mongoose.set('debug', true)
