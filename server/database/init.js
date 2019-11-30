@@ -96,11 +96,13 @@
 
 
 const mongo = require('mongoose'),
-    path = require('path'),
-    schema = require(path.join(__dirname, '/schema'));
-    const book = schema.book;
-    console.log(schema)
-    console.log(book)
+    path = require('path');
+    // const schema = require(path.join(__dirname, '/schema'));
+    // console.log('schema====================')
+    // console.log(schema)
+    // const book = schema.book;
+    // console.log(schema)
+    // console.log(book)
 
     let dbName,
     url = 'mongodb://localhost:27017/';
@@ -250,5 +252,7 @@ class Mongo {
         })
     }
 }
+// module.exports = Mongo;
+export default Mongo;
 
-module.exports = Mongo;
+const mongoose = require('mongoose');

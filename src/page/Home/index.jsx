@@ -26,6 +26,7 @@ class Home extends Component {
                 <p>{user && user.name}</p>
                 <p>{user && user.gender}</p>
                 <p>{user && user.age}</p>
+                <p>{user && user.text}</p>
             </div>
         );
     }

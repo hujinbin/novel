@@ -40,4 +40,4 @@ bookSchema.pre('save', function (next) {
   next()
 })
 
-mongoose.model('Book', bookSchema)
+mongoose.model('book', bookSchema)
