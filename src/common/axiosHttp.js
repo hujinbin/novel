@@ -21,7 +21,8 @@ class axiosHttp {
     setConfig(type) {
         return {
             method: type || this.base.type,
-            url: this.base.meta + this.options.url,
+            // url: this.base.meta + this.options.url,
+            url: this.options.url,
             params: this.options.params || {}, // Get的参数
             data: this.options.data ? (this.options.data.constructor === FormData ? this.options.data : qs.stringify(this.options.data)) : {} // Post的参数
         };
