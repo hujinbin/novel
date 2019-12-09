@@ -42,4 +42,4 @@ chapterSchema.pre('save', function (next) {
   next()
 })
 
-mongoose.model('Chapter', chapterSchema)
+module.exports = mongoose.model('Chapter', chapterSchema)

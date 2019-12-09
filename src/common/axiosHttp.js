@@ -2,11 +2,11 @@ import qs from 'qs';
 import axios from 'axios';
 import isNode from 'isnode';
 
-class axiosHttp {
+class Request {
     constructor() {
         this.base = {
             type: 'get',
-            meta: isNode ? 'http://127.0.0.1:3000' : 'http://192.168.8.229:3000'
+            meta: isNode ? 'http://127.0.0.1:3000' : 'http://127.0.0.1:3000'
         };
         this.options = {
             url: null,
@@ -21,8 +21,7 @@ class axiosHttp {
     setConfig(type) {
         return {
             method: type || this.base.type,
-            // url: this.base.meta + this.options.url,
-            url: this.options.url,
+            url: this.base.meta + this.options.url,
             params: this.options.params || {}, // Get的参数
             data: this.options.data ? (this.options.data.constructor === FormData ? this.options.data : qs.stringify(this.options.data)) : {} // Post的参数
         };
@@ -40,4 +39,4 @@ class axiosHttp {
         });
     }
 }
-export default new axiosHttp();
+export default new Request();
