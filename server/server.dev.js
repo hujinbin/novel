@@ -34,10 +34,6 @@ const port = process.env.port || 3000;
 const errThrow = require('./routes/errThrow')
 
 
-// 连接mongodb
-
-
-
 compiler.plugin('emit', (compilation, callback) => {
     const assets = compilation.assets;
     let file, data;

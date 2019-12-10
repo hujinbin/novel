@@ -1,21 +1,12 @@
-// const mongoose = require('mongoose')
-// var env = process.env.NODE_ENV || 'development'
+
 
 // var db = 'mongodb://root:root@localhost:27017/novel'
-
-// const glob = require('glob')
-// const { resolve } = require('path')
-
-// mongoose.Promise = global.Promise
-
-// exports.initSchemas = () => {
-//   glob.sync(resolve(__dirname, './schema', '**/*.js')).forEach(require)
-// }
 
 const mongoose = require('mongoose');
 const path = require('path')
 const glob = require('glob')
 const schema = Object
+mongoose.Promise = global.Promise
 glob.sync(path.resolve(__dirname, './schema', '**/*.js')).forEach((file)=>{
     const fileStr = file.split('/')
     const nameJs = fileStr[fileStr.length-1]
@@ -110,14 +101,16 @@ class Mongo {
         return new Promise((resolve, reject) => {
             try {
                 this.connect().then(() => {
-                    console.log(schema[table])
-                    schema[table].find(obj).then((err, doc) => {
-                        console.log(err, doc)
-                        if (err)
-                            reject(err);
-                        else
-                            resolve({length: doc.length, data: doc});
-                    })
+                    const doc = this.findTab(table, obj)
+                    console.log(doc)
+                    reject({length: doc.length, data: doc});
+                    // schema[table].find(obj, (err, doc) => {
+                    //     console.log(err, doc)
+                    //     if (err)
+                    //         reject(err);
+                    //     else
+                    //         resolve({length: doc.length, data: doc});
+                    // });
                 });
             } catch (e) {
                 throw new Error(e);
@@ -125,6 +118,13 @@ class Mongo {
         });
     }
 
+
+    static async findTab(table, obj){
+        console.log(schema[table])
+        const doc = await schema[table].find(obj)
+        console.log(doc)
+        return doc
+    }
     /**
      *
      * @param table : String
