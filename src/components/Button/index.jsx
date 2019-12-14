@@ -1,8 +1,3 @@
-/**
- * @param < Button />
- * @time 2019/1/20
- */
-
 import React from 'react';
 import classnames from 'classnames';
 import styles from './index.less';

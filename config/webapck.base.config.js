@@ -18,7 +18,6 @@ module.exports = {
                     }
                 }
             },
-            { test: /\.(png|jpg|gif|webp)$/, use: [{ loader: 'url-loader', options: { limit: 8192 } }] },
             { test: /\.json$/, loader: 'json-loader' },
             { test: /\.html$/, loader: 'html-loader' }
         ]

@@ -5,7 +5,6 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
 import routes from './routes'
-import NotFound from '../page/404/index.jsx';
 
 class RoutesIndex extends React.Component {
     render() {

@@ -1,3 +1,4 @@
+'use strict'
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
@@ -27,7 +28,15 @@ module.exports = merge(baseWebpackConfig, {
                     { loader: 'less-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
                     // { loader: 'sass-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
                 ]
-            }
+            },
+            {
+                test: [/\.svg$/, /\.webp$/, /\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+                loader: require.resolve('url-loader'),
+                options: {
+                  limit: 1024,
+                  name: 'img/[name].[hash:8].[ext]',
+                },
+            },
         ]
     },
     plugins: [

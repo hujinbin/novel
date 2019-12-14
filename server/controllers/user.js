@@ -15,24 +15,22 @@
 
 // mongodb连接方式
 
-import Mongo from '../mongodb/init';
+// import Mongo from '../mongodb/init';
 const getUserInfo = async ctx => {
     let data = {};
-    // data = {
-    //     userId: 1002,
-    //     name: 'xwb007',
-    //     gender: '男',
-    //     age: 24
-    // };
-    await Mongo.findInTable('book').then((result)=>{
-        console.log(result)
-        data = result
-    }).catch((error)=>{
-        console.log(error)
-    })
-
-    // ctx.body = data;
-    ctx.body = JSON.stringify(Mongo);
+    data = {
+        userId: 1002,
+        name: 'xwb007',
+        gender: '男',
+        age: 24
+    };
+    // await Mongo.findInTable('book').then((result)=>{
+    //     console.log(result)
+    //     data = result
+    // }).catch((error)=>{
+    //     console.log(error)
+    // })
+    ctx.body = data;
 };
 
 

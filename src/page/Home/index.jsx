@@ -20,13 +20,16 @@ class Home extends Component {
         const { user } = this.state;
         return (
             <div className={styles.box}>
-                <Link to="/about">About</Link>
+                <div className={styles['App-header']}>
+                  <img src={require('./logo.svg')} className={styles['App-logo']} alt="logo" />
+                  <Link to="/about">About</Link>
                 <h1>hello koa-react-template</h1>
                 <p>{user && user.userId}</p>
                 <p>{user && user.name}</p>
                 <p>{user && user.gender}</p>
                 <p>{user && user.age}</p>
                 <p>{user && user.text}</p>
+                </div>
             </div>
         );
     }

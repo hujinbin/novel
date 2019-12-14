@@ -1,7 +1,7 @@
 // import AC from '../components/async_load'
 import Home from '../page/Home/index.jsx';
 import About from '../page/About/index.jsx';
-import NotFound from '../page/404/index.jsx';
+import NotFound from '../page/NotFound/index.jsx';
 
 const routes = [
   { name: '首页', path: '/', component: Home },

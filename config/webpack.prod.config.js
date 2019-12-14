@@ -1,3 +1,4 @@
+'use strict'
 const path = require('path');
 const fs = require('fs');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
@@ -7,7 +8,7 @@ const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webapck.base.config')
 
 module.exports = [
-    merge(baseWebpackConfig,{
+    merge(baseWebpackConfig, {
         stats: 'none',
         entry: {
             bundle: './src'
@@ -29,6 +30,14 @@ module.exports = [
                         { loader: 'less-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } }
                     ]
                 },
+                {
+                    test: [/\.svg$/, /\.webp$/, /\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+                    loader: require.resolve('url-loader'),
+                    options: {
+                      limit: 1024,
+                      name: 'img/[name].[hash:8].[ext]',
+                    },
+                },
             ]
         },
         plugins: [
@@ -43,7 +52,7 @@ module.exports = [
             })
         ]
     }),
-    merge(baseWebpackConfig,{
+    merge(baseWebpackConfig, {
         stats: 'none',
         entry: {
             server: './server/server.prod.js'
@@ -69,6 +78,7 @@ module.exports = [
                         { loader: 'less-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } }
                     ]
                 },
+                { test: /\.(png|jpg|jpeg|gif|webp|svg)$/, use: [{ loader: 'url-loader', options: { limit: 1024 } }] },
             ]
         },
         externals: fs
