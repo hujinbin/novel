@@ -14,7 +14,7 @@ require('css-modules-require-hook')({
 });
 require('asset-require-hook')({
     name: '/[hash].[ext]',
-    extensions: ['jpg', 'png', 'gif', 'webp'],
+    extensions: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp'],
     limit: 8192
 });
 

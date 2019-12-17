@@ -16,6 +16,9 @@
 // mongodb连接方式
 
 // import Mongo from '../mongodb/init';
+// const findUserInfo = () => {
+//     return Mongo.findInTable('book');
+// };
 const getUserInfo = async ctx => {
     let data = {};
     data = {
@@ -24,6 +27,9 @@ const getUserInfo = async ctx => {
         gender: '男',
         age: 24
     };
+    // await findUserInfo().then(result => {
+    //     data = result;
+    // });
     // await Mongo.findInTable('book').then((result)=>{
     //     console.log(result)
     //     data = result

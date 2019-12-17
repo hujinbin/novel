@@ -78,7 +78,15 @@ module.exports = [
                         { loader: 'less-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } }
                     ]
                 },
-                { test: /\.(png|jpg|jpeg|gif|webp|svg)$/, use: [{ loader: 'url-loader', options: { limit: 1024 } }] },
+                {
+                    test: [/\.svg$/, /\.webp$/, /\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
+                    loader: require.resolve('url-loader'),
+                    options: {
+                      limit: 1024,
+                      name: '../img/[name].[hash:8].[ext]',
+                    },
+                },
+                // { test: /\.(png|jpg|jpeg|gif|webp|svg)$/, use: [{ loader: 'url-loader', options: { limit: 1024 } }] },
             ]
         },
         externals: fs
