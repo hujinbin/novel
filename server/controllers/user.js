@@ -15,7 +15,7 @@
 
 // mongodb连接方式
 
-// import Mongo from '../mongodb/init';
+import Mongo from '../mongodb/init';
 // const findUserInfo = () => {
 //     return Mongo.findInTable('book');
 // };
@@ -27,6 +27,10 @@ const getUserInfo = async ctx => {
         gender: '男',
         age: 24
     };
+    // await Mongo.findInTable('book', {}, function (err, res) {
+    //     console.log(res);
+    //     data = result;
+    // });
     // await findUserInfo().then(result => {
     //     data = result;
     // });
