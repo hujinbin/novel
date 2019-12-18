@@ -214,10 +214,23 @@ process.on('SIGINT', function () {
   });
 });
  
-var Mongo = function () {
+
+// const path = require('path')
+const glob = require('glob')
+// const schema = Object
+mongoose.Promise = global.Promise
+
+
+const Mongo = function () {
   this.mongoClient = {};
-  var filename = path.join(path.dirname(__dirname).replace('app', ''), 'config/table.json');
-  this.tabConf = JSON.parse(fs.readFileSync(path.normalize(filename)));
+//   var filename = path.join(path.dirname(__dirname).replace('app', ''), 'config/table.json');
+  glob.sync(path.resolve(__dirname, './schema', '**/*.js')).forEach((file)=>{
+    const fileStr = file.split('/')
+    const nameJs = fileStr[fileStr.length-1]
+    const name = String(nameJs).substr(0,String(nameJs).length-3)
+    this.tabConf[name] = require(file)
+  })
+//   this.tabConf = JSON.parse(fs.readFileSync(path.normalize(filename)));
 };
  
 /**
