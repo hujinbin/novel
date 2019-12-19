@@ -13,33 +13,23 @@
 //     ctx.body = data;
 // };
 
-// mongodb连接方式
 
+// mongodb连接方式
 import Mongo from '../mongodb/init';
-// const findUserInfo = () => {
-//     return Mongo.findInTable('book');
-// };
 const getUserInfo = async ctx => {
     let data = {};
-    data = {
-        userId: 1002,
-        name: 'xwb007',
-        gender: '男',
-        age: 24
-    };
-    // await Mongo.findInTable('book', {}, function (err, res) {
-    //     console.log(res);
-    //     data = result;
-    // });
-    // await findUserInfo().then(result => {
-    //     data = result;
-    // });
-    // await Mongo.findInTable('book').then((result)=>{
-    //     console.log(result)
-    //     data = result
-    // }).catch((error)=>{
-    //     console.log(error)
-    // })
+    // data = {
+    //     userId: 1002,
+    //     name: 'xwb007',
+    //     gender: '男',
+    //     age: 24
+    // };
+    await Mongo.findOne('book', {} , function (err, res) {
+        console.log(err,res)
+        if(err === null){
+            data = res;
+        }  
+    });
     ctx.body = data;
 };
 
