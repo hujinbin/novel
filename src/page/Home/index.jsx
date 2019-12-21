@@ -8,27 +8,30 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user: props.staticContext
+            bookList: props.staticContext
         };
     }
 
     async componentDidMount() {
-        this.setState({ user: await getData(this.props.match.path) });
+        this.setState({ bookList: await getData(this.props.match.path) });
     }
 
     render() {
-        const { user } = this.state;
+        const { bookList } = this.state;
         return (
             <div className={styles.box}>
                 <div className={styles['App-header']}>
-                  <img src={require('./logo.svg')} className={styles['App-logo']} alt="logo" />
-                  <Link to="/about">About</Link>
-                <h1>hello koa-react-template</h1>
-                <p>{user && user.userId}</p>
-                <p>{user && user.name}</p>
-                <p>{user && user.gender}</p>
-                <p>{user && user.age}</p>
-                <p>{user && user.text}</p>
+                    <img src={require('./logo.svg')} className={styles['App-logo']} alt="logo" />
+                    <Link to="/about">About</Link>
+                    <h1>hello koa-react-template</h1>
+                    <ul>
+                        {bookList && bookList.map((book) =>
+                            <li key={book.bookId}>
+                                <p>{book.name}</p>
+                                <p>{book.auhtor}</p>
+                            </li>
+                        )}
+                    </ul>
                 </div>
             </div>
         );

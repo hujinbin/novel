@@ -15,9 +15,6 @@ const bookSchema = new Schema({
   headImg: {
     type: String
   },
-  chapterNum: {
-    type: Number
-  },
   meta: {
     createdAt: {
       type: Date,

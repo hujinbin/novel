@@ -1,5 +1,5 @@
 
-线上地址：http://novel.leheavengame.com/
+线上地址：http://jue.leheavengame.com/
 
 ## Build Setup
 

@@ -1,8 +1,8 @@
 import Router from 'koa-router';
-import getUserInfo from '../controllers/user.js';
+import Book from '../controllers/book.js';
 
 const router = new Router({ prefix: '/api' });
 
-router.get('/user/getUserInfo', getUserInfo);
+router.get('/book/getBookList', Book.getBookList);
 
 export default router;
