@@ -76,7 +76,7 @@ Mongo.prototype.save = function (table_name, fields) {
     if (err_num > 0) {
       reject({ msg: 'Wrong field name' });
     }
-    mongooseEntity.save(function (err, res) {
+    mongooseEntity.save((err, res)=> {
       if (err) {
         reject(err);
       } else {
