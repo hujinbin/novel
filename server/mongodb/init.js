@@ -42,6 +42,9 @@ mongoose.Promise = global.Promise
 // 初始化mongoose model
 const schema = Object
 
+/**
+ * @param schema[name] 表名称(集合名称)
+ */
 glob.sync(path.resolve(__dirname, './schema', '**/*.js')).forEach((file) => {
   const fileStr = file.split('/')
   const nameJs = fileStr[fileStr.length - 1]
@@ -50,15 +53,7 @@ glob.sync(path.resolve(__dirname, './schema', '**/*.js')).forEach((file) => {
 })
 
 
-const Mongo = function () {
-  this.tabConf = schema
-};
-
-/**
- * 
- * @param table_name 表名称(集合名称)
- */
-
+const Mongo = function () {};
 
 /**
  * 保存数据
