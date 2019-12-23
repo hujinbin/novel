@@ -7,7 +7,7 @@
 // };
 // const getBookList = async ctx => {
 //     let data = {};
-//     await findUserInfo().then(result => {
+//     await findBookList().then(result => {
 //         data = result;
 //     });
 //     ctx.body = data;
@@ -25,12 +25,9 @@ const getBookList = async ctx => {
         auhtor: '乐天堂游戏',
         headImg: 'http://cdn.leheavengame.com/code.png'
     })
-    // await Mongo.findOne('book', {} , function (err, res) {
-    //     console.log(err,res)
-    //     if(err === null){
-    //         data = res;
-    //     }  
-    // });
+    // await Mongo.find('book', {}).then(result=>{
+    //     data = result;
+    // })
     ctx.body = data;
 };
 

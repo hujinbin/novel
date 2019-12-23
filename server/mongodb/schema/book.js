@@ -38,4 +38,4 @@ bookSchema.pre('save', function (next) {
 })
 
 
-module.exports = mongoose.model('Book', bookSchema)
+module.exports = mongoose.model('Book', bookSchema, 'book')
