@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import styles from './index.less';
 
-class About extends Component {
+class NotFound extends Component {
     render() {
         return (
             <div className={styles.box}>
@@ -19,4 +19,4 @@ class About extends Component {
     }
 }
 
-export default withRouter(About);
+export default withRouter(NotFound);
