@@ -10,7 +10,7 @@ module.exports = async(ctx, next) => {
         const status = err.status || 500;
         ctx.status = status;
         if (status === 404) {
-            await ctx.render("404");
+            await ctx.response.redirect("/404")
         } else if (status === 500) {
             await ctx.render("500");
         }
