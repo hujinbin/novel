@@ -12,6 +12,7 @@ async function reactRoute(ctx, next) {
         if (item.path == ctx.url) {
             const data = await getData(ctx.url);
             await ctx.render('index', {
+                title: item.name ? item.name+ '-' : '',
                 root: renderToStaticMarkup(
                     <Provider store={store}>
                         <StaticRouter location={ctx.url} context={data}>
