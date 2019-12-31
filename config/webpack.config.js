@@ -21,17 +21,16 @@ module.exports = merge(baseWebpackConfig, {
                     { loader: 'style-loader' },
                     { loader: 'css-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
                     { loader: 'less-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
-                    // { loader: 'sass-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
                 ]
             },
-            {
-                test: /\.(css|scss|sass)$/,
-                use: [
-                    { loader: 'style-loader' },
-                    { loader: 'css-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
-                    { loader: 'sass-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
-                ]
-            },
+            // {
+            //     test: /\.(css|scss|sass)$/,
+            //     use: [
+            //         { loader: 'style-loader' },
+            //         { loader: 'css-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
+            //         { loader: 'sass-loader', options: { modules: true, localIdentName: '[local]_[hash:base64:10]' } },
+            //     ]
+            // },
             {
                 test: [/\.svg$/, /\.webp$/, /\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
                 loader: require.resolve('url-loader'),
