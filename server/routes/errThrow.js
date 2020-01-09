@@ -8,9 +8,9 @@ module.exports = async(ctx, next) => {
         const status = err.status || 500;
         ctx.status = status;
         if (status === 404) {
-            ctx.body = "404"
+            ctx.body = "400  | Page Not Found";
         } else if (status === 500) {
-            ctx.body = "500";
+            ctx.body = "500  | Internal Server Error";
         }
     }
 };
