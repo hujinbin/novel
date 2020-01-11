@@ -2,7 +2,6 @@
   "name": "novel",
   "version": "1.0.0",
   "description": "",
-  "main": "start.js",
   "scripts": {
     "start": "cross-env webpack-dev-server --compress --config config/webpack.config.js",
     "dev": "cross-env nodemon server/server.dev.js --watch server",

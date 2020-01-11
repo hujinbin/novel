@@ -9,15 +9,16 @@ import getData from '../../src/common/getData';
 
 async function reactRoute(ctx, next) {
     for (let item of routes) {
-         // 判断是否有子页面 统一/:id处理
-         if(String(item.path).indexOf('/:id') != -1){
-            let path = String(item.path).match(/\/(\S*)\//)[1]
-            const urlParamsList = String(ctx.url).split('/')
-            if(urlParamsList.length ===3 && urlParamsList[1] === path){
-             itemPath = ctx.url
-            }
-         }
-        if (item.path == ctx.url) {
+        let itemPath = item.path
+        // 判断是否有子页面 统一/:id处理
+        if(String(item.path).indexOf('/:id') != -1){
+           let path = String(item.path).match(/\/(\S*)\//)[1]
+           const urlParamsList = String(ctx.url).split('/')
+           if(urlParamsList.length ===3 && urlParamsList[1] === path){
+            itemPath = ctx.url
+           }
+        }
+        if (itemPath == ctx.url) {
             const data = await getData(ctx.url);
             await ctx.render('index', {
                 title: item.name ? item.name+ '-' : '',

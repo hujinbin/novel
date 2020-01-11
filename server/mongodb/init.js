@@ -1,20 +1,14 @@
 
+'use strict'
 
 const path = require('path');
 const mongoose = require('mongoose');
 const logger = require('pomelo-logger').getLogger('mongodb-log');
 const glob = require('glob')
+const config = require('../../config/config')
 
-const options = {
-  db_user: "game",
-  db_pwd: "12345678",
-  db_host: "localhost",
-  db_port: 27017,
-  db_name: "novel"
-};
-
-// const dbURL = "mongodb://" + options.db_user + ":" + options.db_pwd + "@" + options.db_host + ":" + options.db_port + "/" + options.db_name;
-const dbURL = "mongodb://" + options.db_host + ":" + options.db_port + "/" + options.db_name;
+const dbURL = "mongodb://" + config.options.db_user + ":" + config.options.db_pwd + "@" + config.options.db_host + ":" + config.options.db_port + "/" + config.options.db_name;
+// const dbURL = "mongodb://" + options.db_host + ":" + options.db_port + "/" + options.db_name;
 mongoose.connect(dbURL);
 
 mongoose.connection.on('connected', function (err) {

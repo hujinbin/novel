@@ -1,12 +1,8 @@
 import mysql from 'mysql';
+const config = require('../../config/config')
 
-const pool = mysql.createPool({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
-    port: '3306',
-    database: 'test'
-});
+
+const pool = mysql.createPool(config.mysql);
 
 /**
  *
