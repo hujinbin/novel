@@ -228,14 +228,19 @@ Mongo.prototype.distinct = function (table_name, field, conditions) {
  * 连写查询
  * @param table_name 表名
  * @param conditions 查询条件 {a:1, b:2}
- * @param options 选项：{fields: "a b c", sort: {time: -1}, limit: 10}
+ * @param options 选项：{fields: "a b c", sort: {time: -1}, limit: 10, page:1}
  * @param callback 回调方法
  */
 Mongo.prototype.where = function (table_name, conditions, options) {
+  let skipnum = 0;
+  if(options.limit && options.page){
+    skipnum = (Number(options.page) - 1) * Number(options.limit)  //跳过页数
+  }
   return new Promise((resolve, reject) => {
     schema[table_name].find(conditions)
       .select(options.fields || '')
       .sort(options.sort || {})
+      .skip(skipnum)
       .limit(options.limit || {})
       .exec((err, res)=>{
         if (err)
