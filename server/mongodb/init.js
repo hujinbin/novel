@@ -241,7 +241,7 @@ Mongo.prototype.where = function (table_name, conditions, options) {
       .select(options.fields || '')
       .sort(options.sort || {})
       .skip(skipnum)
-      .limit(options.limit || {})
+      .limit(options.limit || 20)
       .exec((err, res)=>{
         if (err)
           reject(err);
