@@ -13,7 +13,7 @@ require('css-modules-require-hook')({
     generateScopedName: '[local]_[hash:base64:10]'
 });
 require('asset-require-hook')({
-    name: '/[hash].[ext]',
+    name: '/img/[name].[hash:8].[ext]',
     extensions: ['jpg', 'jpeg', 'png', 'gif', 'webp', 'svg', 'bmp'],
     limit: 8192
 });
