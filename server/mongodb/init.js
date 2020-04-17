@@ -43,7 +43,7 @@ glob.sync(path.resolve(__dirname, './schema', '**/*.js')).forEach((file) => {
   const fileStr = file.split('/')
   const nameJs = fileStr[fileStr.length - 1]
   const name = String(nameJs).substr(0, String(nameJs).length - 3)
-  schema[name] = require(file)
+  schema[name] = require('./schema/'+name+'.js')
 })
 
 
