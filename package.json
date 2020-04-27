@@ -39,6 +39,7 @@
     "sass": "^1.22.0",
     "sass-loader": "^7.1.0",
     "source-map-support": "^0.5.12",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack-merge": "^4.2.1"
   },
   "devDependencies": {

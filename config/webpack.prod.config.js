@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const merge = require('webpack-merge')
 const baseWebpackConfig = require('./webapck.base.config')
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
 module.exports = [
     merge(baseWebpackConfig, {
@@ -42,6 +43,15 @@ module.exports = [
         },
         plugins: [
             new ProgressBarPlugin({ summary: true }),
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                  compress: {
+                    warnings: false
+                  }
+                },
+                sourceMap: true,
+                parallel: true
+            }),
             new MiniCssExtractPlugin({
                 filename: 'css/[contenthash:8].[name].css'
             }),
@@ -97,6 +107,17 @@ module.exports = [
                 return externals;
             }, {}),
 
-        plugins: [new ProgressBarPlugin({ summary: true })]
+        plugins: [
+            new ProgressBarPlugin({ summary: true }),
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                  compress: {
+                    warnings: false
+                  }
+                },
+                sourceMap: true,
+                parallel: true
+            }),
+        ]
     })
 ];
