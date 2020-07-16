@@ -4,7 +4,7 @@ async function getData(path) {
     switch (path) {
         case '/':
             let data = {};
-            Http('get', '/api/book/getBookList', {}).then(res => {
+            await Http('get', '/api/book/getBookList', {}).then(res => {
                 data = res;
             });
             return data;
