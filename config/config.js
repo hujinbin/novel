@@ -1,7 +1,6 @@
 'use strict'
 
 module.exports = {
-    backendUrl:'http://127.0.0.1:3000',  //后台接口地址
     options: {  // mongodb数据库
         db_user: "admin",
         db_pwd: "123456",
