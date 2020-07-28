@@ -60,16 +60,7 @@ Mongo.prototype.save = function (table_name, fields) {
     if (!fields) {
       reject({ msg: 'Field is not allowed for null' });
     }
-    let err_num = 0;
     let mongooseEntity = new schema[table_name](fields);
-    for (let i in fields) {
-      if (!mongooseEntity[i]) {
-        err_num++;
-      }
-    }
-    if (err_num > 0) {
-      reject({ msg: 'Wrong field name' });
-    }
     mongooseEntity.save((err, res)=> {
       if (err) {
         reject(err);
