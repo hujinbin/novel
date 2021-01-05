@@ -11,7 +11,7 @@
     "delpm": "pm2 delete all"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "consolidate": "^0.15.1",
     "file-loader": "^4.0.0",
