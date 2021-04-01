@@ -14,7 +14,6 @@
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
     "consolidate": "^0.15.1",
-    "file-loader": "^4.0.0",
     "koa": "^2.6.2",
     "koa-body": "^4.1.1",
     "koa-compose": "^4.1.0",
@@ -36,11 +35,7 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
-    "sass": "^1.22.0",
-    "sass-loader": "^7.1.0",
-    "source-map-support": "^0.5.12",
-    "uglifyjs-webpack-plugin": "^2.2.0",
-    "webpack-merge": "^4.2.1"
+    "source-map-support": "^0.5.12"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -55,6 +50,7 @@
     "css-loader": "^2.1.0",
     "css-modules-require-hook": "^4.2.3",
     "ejs": "^2.6.1",
+    "file-loader": "^4.3.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
     "isnode": "0.0.1",
@@ -71,10 +67,14 @@
     "postcss-loader": "^3.0.0",
     "progress-bar-webpack-plugin": "^1.12.1",
     "rimraf": "^2.6.3",
+    "sass": "^1.32.8",
+    "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^1.1.2",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.1.14"
+    "webpack-dev-server": "^3.1.14",
+    "webpack-merge": "^4.2.2"
   }
 }
