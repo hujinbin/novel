@@ -56,7 +56,7 @@ module.exports = [
                 filename: 'css/[contenthash:8].[name].css'
             }),
             new HtmlWebpackPlugin({
-                filename: './src/index.html',
+                filename: './index.html',
                 template: './src/template.html',
                 chunksSortMode: 'none'
             })
