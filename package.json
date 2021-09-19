@@ -7,7 +7,7 @@
     "dev": "cross-env nodemon server/server.dev.js --watch server",
     "build": "rimraf ./dist && cross-env webpack --config ./config/webpack.prod.config.js",
     "server": "npm run build && node ./dist/server/server.js",
-    "startpm": "pm2 start ./server/server.dev.js",
+    "startpm": "npm run build && pm2 start ./dist/server/server.js",
     "delpm": "pm2 delete all"
   },
   "dependencies": {
